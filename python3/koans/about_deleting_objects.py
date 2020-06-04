@@ -9,13 +9,13 @@ class AboutDeletingObjects(Koan):
         del lottery_nums[1]
         del lottery_nums[2:4]
 
-        self.assertEqual(___, lottery_nums)
+        self.assertEqual([4,  15,  42], lottery_nums)
 
     def test_del_can_remove_entire_lists(self):
         lottery_nums = [4, 8, 15, 16, 23, 42]
         del lottery_nums
 
-        with self.assertRaises(___): win = lottery_nums
+        with self.assertRaises(NameError): win = lottery_nums
 
     # ====================================================================
 
@@ -105,7 +105,7 @@ class AboutDeletingObjects(Koan):
         self.assertEqual('Patrick', citizen.name)
 
         del citizen.name
-        self.assertEqual(__, citizen.name)
+        self.assertEqual('Number Six', citizen.name)
 
     # ====================================================================
 
@@ -119,6 +119,6 @@ class AboutDeletingObjects(Koan):
 
     def tests_del_can_be_overriden(self):
         sale = self.MoreOrganisedClosingSale()
-        self.assertEqual(__, sale.jellies())
+        self.assertEqual(5, sale.jellies())
         del sale.jellies
-        self.assertEqual(__, sale.last_deletion)
+        self.assertEqual('jellies', sale.last_deletion)
